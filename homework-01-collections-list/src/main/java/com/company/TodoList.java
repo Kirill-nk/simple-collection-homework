@@ -14,19 +14,24 @@ public class TodoList {
     public void add(int index, String todo) {
         // TODO: добавьте дело на указанный индекс,
         //  проверьте возможность добавления
-
+        if (list.get(index).isEmpty())
+        list.add(index, todo);
     }
 
     public void edit(int index, String todo) {
         // TODO: заменить дело на index переданным todo индекс,
         //  проверьте возможность изменения
-
+        if (!list.get(index).isEmpty()){
+            list.set(index,todo);
+        }
     }
 
     public void delete(int index) {
         // TODO: удалить дело находящееся по переданному индексу,
         //  проверьте возможность удаления дела
-
+        if (!list.get(index).isEmpty()){
+            list.remove(index);
+        }
     }
 
     public List<String> getTodos() {
