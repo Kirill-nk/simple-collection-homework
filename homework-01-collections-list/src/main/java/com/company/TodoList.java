@@ -37,5 +37,6 @@ public class TodoList {
     public List<String> getTodos() {
         // TODO: вернуть список дел
         return list;
+        //Как вернуть лист с индексами, как в задании???
     }
 }
