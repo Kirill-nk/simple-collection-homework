@@ -12,18 +12,23 @@ public class Main {
         while (true) {
             String input = scanner.nextLine();
             if (input.equals("LIST")) {
-                System.out.println(todoList.getTodos());
+//                System.out.println(String.join("-", todoList.getTodos()));
+                for (int i = 0; i < todoList.list.size(); i++) {
+                    System.out.println(i + " - " + todoList.list.get(i));
+                }
+                //String join/
             }
             if (input.contains("ADD")) {
-                todoList.add(input.substring(4, input.length()));
+                todoList.add(input.substring(4));
             }
             if (input.contains("DELETE")) {
-                todoList.delete(input.indexOf(input.substring(input.length())));
+                todoList.delete(Integer.parseInt(input.substring(7)));
             }
-
+            if (input.contains("EDIT")) {
+                todoList.edit(Integer.parseInt(input.substring(5,6)), input.substring(7));
+            }
             if (input.equals("EXIT"))
                 break;
-
         }
     }
 }

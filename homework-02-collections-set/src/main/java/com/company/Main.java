@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Main {
 
     /* TODO:
@@ -17,6 +19,25 @@ public class Main {
     */
 
     public static void main(String[] args) {
-           //TODO: write code here
+        System.out.println("Введите одну из команд: ADD, LIST, EXIT");
+        Scanner scanner = new Scanner(System.in);
+        EmailList emailList = new EmailList();
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.equals("LIST")) {
+                emailList.stringSet.forEach(
+                   x -> {
+                       System.out.println(x);
+                   }
+                );
+            }
+            if (input.contains("ADD")) {
+                emailList.add(input.substring(4));
+            }
+
+            if (input.equals("EXIT"))
+                break;
+        }
     }
+
 }
