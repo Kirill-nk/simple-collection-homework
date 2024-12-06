@@ -11,11 +11,7 @@ public class EmailList {
         // TODO: валидный формат email добавляется, email это строка, она быть может любой
         // TODO принять решение добавлять аргумент email или нет должен этот метод
         if (email.contains("@") && email.contains("."))
-            stringSet.forEach(n->{
-                if(!email.){
-                    stringSet.add(email);
-                }
-            });
+            stringSet.add(email.toLowerCase());
     }
 
     public List<String> getSortedEmails() {
