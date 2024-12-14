@@ -5,7 +5,6 @@ import java.util.*;
 public class EmailList {
 
     Set<String> stringSet = new TreeSet<>();
-    List<String> duplicates = new ArrayList<>();
 
     public void add(String email) {
         // TODO: валидный формат email добавляется, email это строка, она быть может любой
