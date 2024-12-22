@@ -11,7 +11,7 @@ public class Main {
         while (true) {
             String input = scanner.nextLine();
             if (input.equals("add")) {
-                ;
+                return;
             }
             if (input.equals("map")){
                 System.out.println(phoneBook);

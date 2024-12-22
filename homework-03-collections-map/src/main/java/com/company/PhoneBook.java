@@ -10,12 +10,17 @@ public class PhoneBook {
     //можно добавить метод, можно не добавлять.
     // Выбрать правильную коллекцию.
 
+    //Сделать новый метод, который проверит на регулярку
+    //name.matches("^[а-яА-ЯёЁ]+$")
+    public void testRegular(String name) {
+        System.out.println(name.matches("^[а-яА-ЯёЁ]+$"));
+    }
 
     public void addContact(String name, String phone) {
+
         // TODO проверь корректность формата имени и телефона
         // TODO (рекомендуется написать отдельные методы для проверки является строка именем/телефоном)
         // TODO если такой номер уже есть в списке, то перезаписать имя абонента
-//        name.matches("^[а-яА-ЯёЁ]+$");
         for (Map.Entry<String, Set<String>> entry : new HashSet<>(phoneBook.entrySet())) {
             Set<String> value = entry.getValue();
             value.remove(phone);
@@ -46,12 +51,24 @@ public class PhoneBook {
     public String getContactByPhone(String phone) {
         // TODO формат одного контакта "Имя - Телефон"
         // TODO если контакт не найдены - вернуть пустую строку
-        return null;
+        for (Map.Entry<String, Set<String>> entry : phoneBook.entrySet()) {
+            if (entry.getValue().contains(phone)) {
+                return entry.getKey() + " - " + String.join(", ", entry.getValue());
+            }
+        }
+        return "";
     }
 
     public Set<String> getAllContacts() {
         // TODO формат одного контакта "Имя - Телефон"
         // TODO если контактов нет в телефонной книге - вернуть пустой TreeSet
-        return null;
+        if (phoneBook.isEmpty()) {
+            return new TreeSet<>();
+        }
+        Set<String> set = new HashSet<>();
+        for (Map.Entry<String, Set<String>> entry : phoneBook.entrySet()) {
+            set.add(entry.getKey() + " - " + String.join(", ", entry.getValue()));
+        }
+        return set;
     }
 }
