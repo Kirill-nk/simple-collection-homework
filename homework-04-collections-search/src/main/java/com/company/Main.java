@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.stream.Collectors;
+
 public class Main {
 
     /*
@@ -10,6 +12,8 @@ public class Main {
      */
 
     public static void main(String[] args) {
-
+        System.out.println(CoolNumbers.generateCoolNumbers().stream().skip(90).limit(40).collect(Collectors.toList()));
+        System.out.println(CoolNumbers.generateCoolNumbers().size());
+        CoolNumbers differ = new CoolNumbers();
     }
 }
